@@ -29,7 +29,7 @@ def main():
 
     # Distinct styles: on a linear problem Heun and midpoint coincide exactly,
     # so the dashed line keeps both visible.
-    styles = {"euler": "o-", "heun": "s-", "midpoint": "x--", "rk4": "^-"}
+    styles = {"euler": "o-", "heun": "s-", "midpoint": "x--", "kutta3": "d-", "rk4": "^-"}
 
     fig, ax = plt.subplots(figsize=(6, 4.5))
     for method, p in ORDERS.items():
@@ -40,7 +40,7 @@ def main():
         errors = np.array(errors)
         p_est = estimate_order(h, errors)
         print(f"{method:>9}: expected order {p}, estimated {p_est:.2f}")
-        ax.loglog(h, errors, styles[method], label=f"{method} (order ≈ {p_est:.2f})")
+        ax.loglog(h, errors, styles.get(method, "o-"),label=f"{method} (order ≈ {p_est:.2f})")
 
     ax.set_xlabel("step size $h$")
     ax.set_ylabel(r"error $\|y_N - y(T)\|$")

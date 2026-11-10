@@ -21,6 +21,13 @@ TABLEAUS = {
         [0.0, 1.0],
         [0.0, 0.5],
     ),
+    "kutta3": (
+        [[0.0, 0.0, 0.0],
+         [0.5, 0.0, 0.0],
+         [-1.0, 2.0, 0.0]],
+        [1 / 6, 2 / 3, 1 / 6],
+        [0.0, 0.5, 1.0],
+    ),
     "rk4": (
         [[0.0, 0.0, 0.0, 0.0],
          [0.5, 0.0, 0.0, 0.0],
@@ -32,7 +39,7 @@ TABLEAUS = {
 }
 
 # Theoretical order of each method.
-ORDERS = {"euler": 1, "heun": 2, "midpoint": 2, "rk4": 4}
+ORDERS = {"euler": 1, "heun": 2, "midpoint": 2, "kutta3": 3, "rk4": 4}
 
 
 def explicit_rk(f, t_span, y0, n_steps, A, b, c):

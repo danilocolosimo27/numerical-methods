@@ -23,6 +23,7 @@ The function `explicit_rk` accepts **any** explicit Butcher tableau; the followi
 | Euler    | 1      | 1     |
 | Heun     | 2      | 2     |
 | Midpoint | 2      | 2     |
+| Kutta 3  | 3      | 3     |
 | RK4      | 4      | 4     |
 
 ### Convergence study
